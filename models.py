@@ -3,7 +3,7 @@ from django.db import models
 class Athlete(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
-    sex = models.CharField(max_length=30)
+    sex = models.CharField(max_length=5, choices = [('m', 'male'), ('f', 'female')])
     birthday = models.DateField()
     
     def __unicode__(self):
