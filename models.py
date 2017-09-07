@@ -8,5 +8,7 @@ class Athlete(models.Model):
     
     def __unicode__(self):
         return self.first_name + ' ' + self.last_name
+    def __str__(self):
+        return self.first_name + ' ' + self.last_name
     
 # Create your models here.
