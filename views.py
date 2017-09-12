@@ -1,17 +1,21 @@
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
 from django.http import HttpResponse
 from testapp.models import Athlete
 import datetime
 
 def somefunc(request):
-    return HttpResponse('Hello World!', content_type='text/plain')
+    context = 'Some text...'
+    #return HttpResponse('Hello World!', content_type='text/plain')
+    return render(request, 'some', {'text': context,})
 
 def athletes_list(request):
     res = Athlete.objects.all()
     if len(res) > 0:
-        return HttpResponse(str(res[0]),  content_type='text/plain')
+        return render(request, 'athletes', {'athletes_list': res,})
+        #return HttpResponse(str(res[0]),  content_type='text/plain')
     else:
-        return HttpResponse('None', content_type='text/plain')
+        return render(request, 'athletes', {'athletes_list': res,})
+        #return HttpResponse('None', content_type='text/plain')
 
 def add_athlete(request):
     try:
