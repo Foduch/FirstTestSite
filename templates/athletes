@@ -1,0 +1,9 @@
+{% extends "base" %}
+{% block content %}
+  <ul>
+    {% for athlete in athletes_list %}
+    <li>{{athlete}}</li>
+    {% endfor%}
+  </ul>
+{% endblock %}
+
